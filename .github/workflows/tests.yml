@@ -1,0 +1,13 @@
+name: Run Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile tests
+        run: g++ tests/test_grading.cpp -o test_run.exe
+      - name: Run tests
+        run: ./test_run.exe
